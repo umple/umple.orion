@@ -38,13 +38,26 @@ This command will run the image you built in the previous step and create a cont
 osgi>
 ```
 
-Visit `http://localhost:8080` in your web browser and you should be able to see the Eclipse Orion up and running your system! To kill a running Docker container instance, execute the following command in a terminal:
+Visit `http://localhost:8080` in your web browser and you should be able to see the Eclipse Orion up and running on your system! 
+
+## Managing Docker
+
+To kill a running Docker container instance, execute the following command in a terminal:
 
 ```
 docker kill <container-name>
 ```
 
 In our example above, we would execute `docker kill my_orion` to kill our running Docker container instance. To check for any running Docker instances, execute `docker ps` in a Docker terminal to list all containers.
+
+To restart a Docker container that was killed, simply execute the following command:
+
+```
+docker restart <container-name>
+```
+
+Continuing our example, we would execute `docker restart my_orion` to bring our Eclipse Orion Docker instance back up again. Please refer to the Docker Cheatsheet in the Resources section for more Docker commands.
+
 
 ## Resources
 - [Eclipse Orion Server guide](http://wiki.eclipse.org/Orion/Server_admin_guide)
