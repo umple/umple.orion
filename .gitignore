@@ -1,0 +1,22 @@
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Eclipse
+.classpath
+.project
+.settings
+.metadata
+
+# Sublime Text
+*.swp
+
+# IntelliJ
+.idea
+*.iml
+.recommenders
+
+# MacOS
+.DS_Store
+
