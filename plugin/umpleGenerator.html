@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+  <title>Umple Generator Client</title>
+  <script src="plugin.js"></script>    
+  <script>
+      var headers = { name: "Umple Generator Client", version: "1.0", description: "Generate code from .ump files" };
+      var provider = new orion.PluginProvider(headers);
+
+      var serviceImpl = { 
+          run: function(text){
+              var x = new XMLHttpRequest();
+              x.open("POST", "http://localhost:4567/UmpleGenerate"); //TODO: the location of the Orion/UmpleCodeGenerator server
+              x.send("some data");
+          }
+      };
+ 
+      var serviceProperties = { 
+          name: "Umple Generation",
+          key: ["u", true, true] // Ctrl+Shift+u
+      };
+
+      provider.registerService("orion.edit.command", serviceImpl, serviceProperties);
+      provider.connect();
+  </script>
+</head>
+<body></body>
+</html>
