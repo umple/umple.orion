@@ -1,8 +1,13 @@
 import static spark.Spark.*;
 
-public class Main {
+public class UmpleGenerationServer {
+	
+	//TODO: set server path to server location
+	private static final String ORION_SERVER_WORKSPACE = "/home/nwam/4475/eclipse/serverworkspace/";
+	private static final String ORION_USER_CONTENT_DIRECTORY = "OrionContent/";
+	
     public static void main(String[] args) {
-    	
+    	    	
     	/* ENABLE CORS */
     	options("/UmpleGenerate",
     	        (request, response) -> {
@@ -26,20 +31,34 @@ public class Main {
     	before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
     	
  
+    	/* HTTP REQUEST HANDLERS */
+    	
         get("/UmpleGenerate", (req, res) -> {
         	System.out.println("GET!!!!");
         	res.body("test");
         	return "HI!";
         });
         
-        //get filename(s) from request
-        //get username from request
-        //run umple function(s) on file(s)
-        
         post("/UmpleGenerate", (req, res) -> {
         	System.out.println("POST!!!!");
         	res.body("Info processed"); 
-        	return req.body();
+        	
+        	//TODO: get username and filenames from req
+        	String username = "nwam";
+        	String[] filenames = new String[]{"UmpleProject/Shapes.ump"};
+        	
+        	// Get the user's directory
+        	String userDirectory = String.format("%s/%s/%s/", 
+        			ORION_SERVER_WORKSPACE, username.substring(0,2), username);
+        	
+        	// Run umple generator on each file
+        	for (String relativeFilename : filenames){
+        		String filename = String.format("%s/%s/%s", 
+        				userDirectory, ORION_USER_CONTENT_DIRECTORY, relativeFilename);
+        		cruise.umple.UmpleConsoleMain.main(new String[]{filename});
+        	}
+        	
+        	return "";
         });
     }
 }
