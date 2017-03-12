@@ -1,5 +1,7 @@
 import static spark.Spark.*;
 
+import java.util.Arrays;
+
 public class UmpleGenerationServer {
 	
 	//TODO: set server path to server location
@@ -43,9 +45,10 @@ public class UmpleGenerationServer {
         	System.out.println("POST!!!!");
         	res.body("Info processed"); 
         	
-        	//TODO: get username and filenames from req
-        	String username = "nwam";
-        	String[] filenames = new String[]{"UmpleProject/Shapes.ump"};
+        	// Parse request for username and filenames
+        	String reqBody[] = req.body().split("\\r?\\n");
+        	String username = reqBody[0];
+        	String[] filenames = Arrays.copyOfRange(reqBody, 1, reqBody.length);
         	
         	// Get the user's directory
         	String userDirectory = String.format("%s/%s/%s/", 

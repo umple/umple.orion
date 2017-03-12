@@ -10,9 +10,18 @@
 
       var serviceImpl = { 
           run: function(text){
+
+              // TODO: the location of the Orion/UmpleCodeGenerator server
+              var umpleGenerateServerURL = "http://localhost:4567/UmpleGenerate";
+
+              // TODO: get username and filename(s) for request
+              // request is the username\nfilename0\nfilename1\nfilename3\n...
+              var request = "nwam\nUmpleProject/Shapes.ump"
+
+              // build and send the request
               var x = new XMLHttpRequest();
-              x.open("POST", "http://localhost:4567/UmpleGenerate", true); //TODO: the location of the Orion/UmpleCodeGenerator server
-              x.send();
+              x.open("POST", umpleGenerateServerURL, true);               
+              x.send(request);
           }
       };
  
