@@ -9,14 +9,18 @@
       var provider = new orion.PluginProvider(headers);
 
       var serviceImpl = { 
-          run: function(text){
+          execute: function(editorContext, options){
 
               // TODO: the location of the Orion/UmpleCodeGenerator server
               var umpleGenerateServerURL = "http://localhost:4567/UmpleGenerate";
 
               // TODO: get username and filename(s) for request
               // request is the username\nfilename0\nfilename1\nfilename3\n...
-              var request = "nwam\nUmpleProject/Shapes.ump"
+              //var request = "nwam\nUmpleProject/Shapes.ump";
+
+              // request is just the currently selected file for now
+              // unsure how this is formatted (not in the docs) so testing that right now
+              var request = options.input;
 
               // build and send the request
               var x = new XMLHttpRequest();

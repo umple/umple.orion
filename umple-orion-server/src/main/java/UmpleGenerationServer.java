@@ -8,6 +8,9 @@ public class UmpleGenerationServer {
 	private static final String ORION_SERVER_WORKSPACE = "/home/nwam/4475/eclipse/serverworkspace/";
 	private static final String ORION_USER_CONTENT_DIRECTORY = "OrionContent/";
 	
+	private static final String REQUEST_FILE_PREFIX = "/file/";
+	private static final String REQUEST_ORIONCONTENT = "-OrionContent";
+	
     public static void main(String[] args) {
     	    	
     	/* ENABLE CORS */
@@ -42,13 +45,13 @@ public class UmpleGenerationServer {
         });
         
         post("/UmpleGenerate", (req, res) -> {
-        	System.out.println("POST!!!!");
+        	System.out.println("Received request:\n" + req.body());
         	res.body("Info processed"); 
         	
         	// Parse request for username and filenames
-        	String reqBody[] = req.body().split("\\r?\\n");
-        	String username = reqBody[0];
-        	String[] filenames = Arrays.copyOfRange(reqBody, 1, reqBody.length);
+        	String reqBody = req.body();
+        	String username = reqBody.substring(REQUEST_FILE_PREFIX.length(), reqBody.indexOf(REQUEST_ORIONCONTENT));
+        	String[] filenames = new String[]{reqBody.substring(reqBody.indexOf('/', REQUEST_FILE_PREFIX.length()))};
         	
         	// Get the user's directory
         	String userDirectory = String.format("%s/%s/%s/", 
