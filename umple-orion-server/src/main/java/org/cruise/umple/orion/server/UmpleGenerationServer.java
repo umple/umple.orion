@@ -1,6 +1,5 @@
+package org.cruise.umple.orion.server;
 import static spark.Spark.*;
-
-import java.util.Arrays;
 
 public class UmpleGenerationServer {
 	
@@ -39,9 +38,8 @@ public class UmpleGenerationServer {
     	/* HTTP REQUEST HANDLERS */
     	
         get("/UmpleGenerate", (req, res) -> {
-        	System.out.println("GET!!!!");
-        	res.body("test");
-        	return "HI!";
+        	System.out.println("Received GET request");
+        	return "";
         });
         
         post("/UmpleGenerate", (req, res) -> {
