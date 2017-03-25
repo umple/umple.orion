@@ -5,7 +5,7 @@ import java.net.URLDecoder;
 public class UmpleGenerationServer {
 	
 	//TODO: set server path to server location
-	private static final String ORION_SERVER_WORKSPACE = "/home/nwam/4475/eclipse/serverworkspace/";
+	private static final String ORION_SERVER_WORKSPACE = "/opt/eclipse/serverworkspace/"; // "/home/nwam/4475/eclipse/serverworkspace/"; //
 	private static final String ORION_USER_CONTENT_DIRECTORY = "OrionContent/";
 	
 	private static final String REQUEST_FILE_PREFIX = "/file/";
@@ -42,11 +42,13 @@ public class UmpleGenerationServer {
  
     	/* HTTP REQUEST HANDLERS */
     	
+    	/* get has no functionality, just here for testing purposes */
         get("/UmpleGenerate", (req, res) -> {
         	System.out.println("[Received GET request]");
         	return "";
         });
         
+        /* generate code on the Orion server */
         post("/UmpleGenerate", (req, res) -> {
         	System.out.println("[Received request]:\n" + req.body() + '\n' );
         	res.body("Info processed"); 

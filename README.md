@@ -4,6 +4,11 @@ This is a plugin to extend the [Eclipse Orion] IDE to support features that faci
 
 ## Development Setup
 
+### Quick Setup
+If you have Docker, then to set up and run the Docker image in a container, run `set_up_and_run_docker`
+
+### Additional information
+
 Umple.Orion leverages [Docker] containers to allow developers to quickly setup their local development environment and get the application up and running on their system, regardless of operating system. 
 
 To install Docker, please visit the following links below to download the appropriate installer and installation instructions. Please read the installation instructions carefully, as certain systems may not meet the requirements for a native Docker installation, and must use [Docker Toolbox] instead. 

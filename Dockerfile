@@ -21,14 +21,20 @@ RUN curl -o /tmp/orion.zip http://mirror.csclub.uwaterloo.ca/eclipse/orion/drops
     rm -rf /tmp/orion.zip && \
     chmod +x /opt/eclipse/orion
 
-# Expose port 8080
-EXPOSE 8080
+# Add the Eclipse Orion configuration file
+ADD orion.conf /opt/eclipse/orion.conf
+
+# Copy over umple-orion-server
+RUN mkdir /opt/umple-orion-server
+ADD umple-orion-server/target/umple-orion-server-*-jar-with-dependencies.jar /opt/umple-orion-server/umple-orion-server.jar
+
+# Expose ports
+EXPOSE 8080 4567
 
 # Set the working directory
 WORKDIR /opt/eclipse
 
-# Add the Eclipse Orion configuration file
-ADD orion.conf /opt/eclipse/orion.conf
-
-# Run the server
-CMD ["/opt/eclipse/orion"]
+# Run the servers
+ADD run /opt/run
+RUN chmod +x /opt/run
+CMD /opt/run
