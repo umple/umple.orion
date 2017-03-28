@@ -1,6 +1,9 @@
 # Set up and run Docker contianer
 cd umple-orion-server
+mvn clean
 mvn package
+mv umple-orion-server/target/umple-orion-server-*-jar-with-dependencies.jar umple-orion-server/target/umple-orion-server-jar-with-dep
+endencies.jar
 cd ..
 sudo systemctl start docker
 sudo docker build -t umple_orion .
