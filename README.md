@@ -12,6 +12,8 @@ The umple-orion-server only needs to be built. Docker will handle running the se
 
 ### Docker Setup
 
+**Make sure you have built the Umple-Orion server to `umple-orion-server/target/umple-orion-server-*-jar-with-dependencies.jar` before building the docker image.**
+
 Umple.Orion leverages [Docker] containers to allow developers to quickly setup their local development environment and get the application up and running on their system, regardless of operating system. 
 
 To install Docker, please visit the following links below to download the appropriate installer and installation instructions. Please read the installation instructions carefully, as certain systems may not meet the requirements for a native Docker installation, and must use [Docker Toolbox] instead. 
