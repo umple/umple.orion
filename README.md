@@ -5,7 +5,7 @@ This is a plugin to extend the [Eclipse Orion] IDE to support features that faci
 ## Development Setup
 
 ### Quick Setup
-If you have Docker, then to set up and run the Docker image in a container, run `set_up_and_run_docker`
+If you have Docker, then to set up and run the Docker image in a container, run `set_up_and_run_docker`. You can istall the plugin on your Orion client at `https://nwam.github.io/umple.orion/umplePlugin.html`.
 
 ### Additional information
 
