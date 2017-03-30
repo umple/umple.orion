@@ -5,9 +5,12 @@ This is a plugin to extend the [Eclipse Orion] IDE to support features that faci
 ## Development Setup
 
 ### Quick Setup
-If you have Docker, then to set up and run the Docker image in a container, run `set_up_and_run_docker`. You can istall the plugin on your Orion client at `https://nwam.github.io/umple.orion/umplePlugin.html`.
+If you have Docker, then to set up and run the Docker image in a container, run `set_up_and_run_docker` from this directory (the directory containing the `Dockerfile`). You can istall the plugin on your Orion client at `https://nwam.github.io/umple.orion/umplePlugin.html`. If you are encountering issues, you can follow the longer setup steps below.
 
-### Additional information
+### Umple-Orion Server Setup
+The umple-orion-server only needs to be built. Docker will handle running the server. To build the server, `cd` to `umple-orion-server` and run `mvn package`. The server will be packaged at `target/umple-orion-server-*-jar-with-dependencies.jar`, where `*` is the version number.
+
+### Docker Setup
 
 Umple.Orion leverages [Docker] containers to allow developers to quickly setup their local development environment and get the application up and running on their system, regardless of operating system. 
 
@@ -44,6 +47,9 @@ osgi>
 ```
 
 Visit `http://localhost:8080` in your web browser and you should be able to see the Eclipse Orion up and running on your system! 
+
+### Umple Plugin Installation
+You need to install the Umple plugin to your Orion client to access the umple-orion server. In your Orion client, navigate to the plugins tab in settings. You can istall the plugin on your Orion client at `https://nwam.github.io/umple.orion/umplePlugin.html`. If you are encountering issues, you can follow the longer setup steps below. The commands contributed from the Umple plugin can be found under the Tools menu while editing a file with the extention `.ump`. For more information about installing Orion plugins, visit [this page](https://wiki.eclipse.org/Orion/How_Tos/Installing_A_Plugin).
 
 ## Managing Docker
 
