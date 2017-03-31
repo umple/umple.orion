@@ -1,0 +1,3 @@
+# Runs both servers on Docker image
+java -jar /opt/umple-orion-server/umple-orion-server.jar &
+/opt/eclipse/orion
