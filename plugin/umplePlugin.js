@@ -1,5 +1,5 @@
 // Location of the Umple server
-var umpleGenerationServerURL = "http://localhost:4567/UmpleGenerate";
+var umpleGenerationServerURL = "https://localhost:4567/UmpleGenerate";
 
 // Location of this file on the web
 var thisFile = location.protocol + '//' + location.host + location.pathname;

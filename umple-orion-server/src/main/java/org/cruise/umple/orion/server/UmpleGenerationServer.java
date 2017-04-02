@@ -14,9 +14,15 @@ public class UmpleGenerationServer {
 	private static final String UMPLE_GENERATE_FLAG = "-g";
 	private static final String UMPLE_PATH_FLAG = "--path";
 	private static final String UMPLE_GENERATED_FOLDER_POSTFIX = "-Gen-Umple";
+
+    private static final String KEYSTORE_LOCATION = "/opt/umple-orion-server/deploy/keystore.jks"; // on the docker image
+    private static final String KEYSTORE_PASSWORD = "password";
 	
     public static void main(String[] args) {
     	    	
+        // Enable HTTPS/SSL
+        secure(KEYSTORE_LOCATION, KEYSTORE_PASSWORD, null, null);
+
     	/* ENABLE CORS */
     	options("/UmpleGenerate",
     	        (request, response) -> {
