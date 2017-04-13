@@ -80,8 +80,7 @@ Visit `http://localhost:8080` in your web browser and you should be able to see 
 ## 3. Umple Plugin
 
 ### Installation
-You need to install the Umple plugin to your Orion client to access the umple-orion server. In your Orion client, navigate to the plugins tab in settings. You can istall the plugin on your Orion client through `https://
-.github.io/umple.orion/umplePlugin.html`. 
+You need to install the Umple plugin to your Orion client to access the umple-orion server. In your Orion client, navigate to the plugins tab in settings. You can istall the plugin on your Orion client through `https://nwam.github.io/umple.orion/umplePlugin.html`. 
 
 The commands contributed from the Umple plugin can be found under the Tools menu while editing a file with the extention `.ump`. For more information about installing Orion plugins, visit [Orion's documentation](https://wiki.eclipse.org/Orion/How_Tos/Installing_A_Plugin).
 
