@@ -5,15 +5,15 @@ This is a plugin to extend the [Eclipse Orion] IDE to support features that faci
 # Development Setup
 
 ## 0.1. Dependencies
- - [Docker](#docker-setup)
+ - [Docker](#2-docker-setup)
  - Maven
- - [Umple.jar is installed to your local Maven repository](#installing-umple-jar-to-your-local-maven-repository)
+ - [Umple.jar is installed to your local Maven repository](#installing-umple-to-your-local-maven-repository)
 
 ## 0.2. Quick Setup (Linux)
 If all of your dependencies are in place, then to set up and run the Docker image in a container, run `set_up_and_run_docker` from this directory (the directory containing the `Dockerfile`). You can istall the plugin on your Orion client at `https://nwam.github.io/umple.orion/umplePlugin.html`. If you are encountering issues, you can follow the longer setup steps below.
 
 ## 1. Umple-Orion Server Setup
-### Installing umple to your local Maven repository
+### Installing Umple to your local Maven repository
 Umple does not exist in Apache's central repositories, so we have to add it to our own local repository to use it in our server. To do so, run: 
 
 ```
@@ -78,7 +78,7 @@ osgi>
 Visit `http://localhost:8080` in your web browser and you should be able to see the Eclipse Orion up and running on your system! 
 
 ## 3. Umple Plugin Installation
-You need to install the Umple plugin to your Orion client to access the umple-orion server. In your Orion client, navigate to the plugins tab in settings. You can istall the plugin on your Orion client at `https://nwam.github.io/umple.orion/umplePlugin.html`. 
+You need to install the Umple plugin to your Orion client to access the umple-orion server. In your Orion client, navigate to the plugins tab in settings. You can istall the plugin on your Orion client through `https://nwam.github.io/umple.orion/umplePlugin.html`. 
 
 The commands contributed from the Umple plugin can be found under the Tools menu while editing a file with the extention `.ump`. For more information about installing Orion plugins, visit [Orion's documentation](https://wiki.eclipse.org/Orion/How_Tos/Installing_A_Plugin).
 
@@ -102,7 +102,7 @@ Continuing our example, we would execute `docker restart my_orion` to bring our 
 
 
 # Resources
-- [Eclipse Orion Server guide](http://wiki.eclipse.org/Orion/Server_admin_guide)
+- [Eclipse Orion Wiki](https://wiki.eclipse.org/Orion)
 - [Docker Cheatsheet](https://github.com/wsargent/docker-cheat-sheet)
 
 [Eclipse Orion]: http://orionhub.org
