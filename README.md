@@ -77,10 +77,18 @@ osgi>
 
 Visit `http://localhost:8080` in your web browser and you should be able to see the Eclipse Orion up and running on your system! 
 
-## 3. Umple Plugin Installation
-You need to install the Umple plugin to your Orion client to access the umple-orion server. In your Orion client, navigate to the plugins tab in settings. You can istall the plugin on your Orion client through `https://nwam.github.io/umple.orion/umplePlugin.html`. 
+## 3. Umple Plugin
+
+### Installation
+You need to install the Umple plugin to your Orion client to access the umple-orion server. In your Orion client, navigate to the plugins tab in settings. You can istall the plugin on your Orion client through `https://
+.github.io/umple.orion/umplePlugin.html`. 
 
 The commands contributed from the Umple plugin can be found under the Tools menu while editing a file with the extention `.ump`. For more information about installing Orion plugins, visit [Orion's documentation](https://wiki.eclipse.org/Orion/How_Tos/Installing_A_Plugin).
+
+### Troubleshooting Connection Security Issues
+Because of security measures (and lack of a CA signed certificate), when testing on localhost, the umple-orion-server gets connections blocked. To fix this, when the umple-orion-server is running, visit `https://localhost:4567/UmpleGenerate` and confirm security exceptions for this address.
+
+Some have reported issues downloading the plugin. It is currently hosted on `nwam`'s GitHub pages, which, for unknown reasons, also get blocked from some browsers. To successfully download the plugin, visit the page and add the security exception to your browser.
 
 # Managing Docker
 
