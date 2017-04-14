@@ -73,7 +73,7 @@ docker build -t umple_orion .
 This command will build an image from the Dockerfile and name it `umple_orion`. You can find this image by executing the command `docker images` in a Docker terminal, which lists all of the available Docker images on your system. Once the image is successfully built, you may run the Eclipse Orion server by executing the following Docker command in a terminal:
 
 ```
-docker run --name my_orion -p 127.0.0.1:8080:8080 -i -t umple_orion
+docker run --name my_orion -p 127.0.0.1:8080:8080 -p 127.0.0.1:4567:4567 -i -t umple_orion
 ```
 
 This command will run the image you built in the previous step and create a container named `my_orion`. If everything is working correctly, you should see the Eclipse Orion server boot up in your terminal and your command prompt should look like the following:
@@ -82,7 +82,7 @@ This command will run the image you built in the previous step and create a cont
 osgi>
 ```
 
-Visit `http://localhost:8080` in your web browser and you should be able to see the Eclipse Orion up and running on your system! 
+Visit `http://localhost:8080` in your web browser and you should be able to see the Eclipse Orion up and running on your system! Sometimes, upon first visiting `http://localhost:8080` you will encounter a HTTP server error 500. Refresh to fix this.
 
 ## 3. Umple Plugin
 
