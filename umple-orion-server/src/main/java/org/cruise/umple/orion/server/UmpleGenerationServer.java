@@ -10,8 +10,6 @@ public class UmpleGenerationServer {
 	//public static final String ORION_SERVER_WORKSPACE = "/opt/eclipse/serverworkspace/"; 
 	public static final String ORION_SERVER_WORKSPACE = "/home/nwam/4475/eclipse/serverworkspace/";
 	
-	private static final String ORION_USER_CONTENT_DIRECTORY = "OrionContent/";
-	
 	private static final String UMPLE_GENERATE_FLAG = "-g";
 	private static final String UMPLE_PATH_FLAG = "--path";
 	private static final String UMPLE_GENERATED_FOLDER_POSTFIX = "-Gen-Umple";
@@ -61,20 +59,11 @@ public class UmpleGenerationServer {
         	System.out.println("Received POST request:\n" + req.body() + '\n' );
         	res.body("Info processed"); 
         	
-        	// Parse request for username, filename, and generation language
+        	// Parse request for filename and generation language
         	Request request = new Request(req.body(), ORION_SERVER_WORKSPACE);
         	String language = request.getLanguage();
-        	String username = request.getUsername();
-        	String relativeFilename = request.getFilename();
+        	String filename = request.getAbsoluteFilename();
         	
-        	// Get the asolute path to the user's directory in the Orion server
-        	String userDirectory = request.getUserDirectory();
-        	
-        	// Run umple generator on each file
-
-    		// Set up args
-    		String filename = String.format("%s/%s/%s", 
-    				userDirectory, ORION_USER_CONTENT_DIRECTORY, relativeFilename);
     		String[] umpleArgs;
     		
     		if(!language.equals("")){

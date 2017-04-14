@@ -10,6 +10,7 @@ public class Request {
 
 	private static final String REQUEST_FILE_PREFIX = "/file/";
 	private static final String REQUEST_ORIONCONTENT = "-OrionContent";
+	private static final String ORION_USER_CONTENT_DIRECTORY = "OrionContent/";
 	
 	private String   language; // language to generate
 	private String   username; // user making request
@@ -36,11 +37,20 @@ public class Request {
     	filename = parseFilenameFromFileInfo(fileInfo);
 	}
 	
+	
+	// Return absolute path of requested file
+	public String getAbsoluteFilename(){
+		return String.format("%s/%s/%s", 
+				getUserDirectory(), ORION_USER_CONTENT_DIRECTORY, filename);
+	}
+	
+	
 	// Return absolute path containing user's files in Orion server
-	public String getUserDirectory(){
+	private String getUserDirectory(){
 		return String.format("%s/%s/%s/", 
     			orionServerWorkspace, username.substring(0,2), username);
 	}
+	
 	
 	// split request into 2: <language> and <fileInfo>
 	// and URL decode
@@ -53,11 +63,13 @@ public class Request {
 		return null;
 	}
 	
+	
 	// extracts <username> from the string:
 	// /file/<username>-OrionContent/<filename>
 	private static String parseUsernameFromFileInfo(String fileInfo){
 		return fileInfo.substring(REQUEST_FILE_PREFIX.length(), fileInfo.indexOf(REQUEST_ORIONCONTENT));
 	}
+	
 	
 	// extracts <filename> from the string:
 	// /file/<username>-OrionContent/<filename>
@@ -66,15 +78,8 @@ public class Request {
 	}
 	
 	
+	
 	public String getLanguage(){
 		return language;
-	}
-	
-	public String getUsername(){
-		return username;
-	}
-	
-	public String getFilename(){
-		return filename;
 	}
 }
