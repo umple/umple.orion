@@ -35,9 +35,7 @@ Be sure to replace `/path/to/umple-1.25.0-963d2bd.jar` with the actual path to y
 For more information on installing 3rd party jars to your local repository, see [Apache's documentation](https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html).
 
 ### Building umple-orion-server
-The umple-orion-server only needs to be built. Docker will handle running the server. To build the server, `cd` to `umple-orion-server` and run `mvn package`. The server will be packaged at `target/umple-orion-server-*-jar-with-dependencies.jar`, where `*` is the version number. 
-
-**Important:** If you are not using the Quick Setup, remove the version number from the file name, renaming the file to `umple-orion-server-jar-with-dependencies.jar`
+The umple-orion-server only needs to be built. Docker will handle running the server. To build the server, `cd` to `umple-orion-server` and run `mvn package`. The server will be packaged to `target/umple-orion-server-jar-with-dependencies.jar`
 
 **Windows developers**: run `C:\path\to\mvn.cmd clean package` to build the server. For more information about running Maven on Windows, check [Apache's documentation](https://maven.apache.org/guides/getting-started/windows-prerequisites.html). 
 
@@ -46,8 +44,6 @@ The umple-orion-server only needs to be built. Docker will handle running the se
 ## 2. Docker Setup
 
 **Windows developers:** Windows seems to unexpectedly change the line-endings of some files. If you are having issues with running the Docker image, make sure all of your line-endings are **Unix** line-endings as the image is built on Ubuntu. This is especially important for the `run` file.
-
-**Make sure you have built the Umple-Orion server to `umple-orion-server/target/umple-orion-server-jar-with-dependencies.jar` before building the docker image.**
 
 Umple.Orion leverages [Docker] containers to allow developers to quickly setup their local development environment and get the application up and running on their system, regardless of operating system. 
 

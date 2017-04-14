@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.cruise.umple.orion.server</groupId>
   <artifactId>umple-orion-server</artifactId>
-  <version>0.2</version>
+  <version>0.3</version>
       
   <properties>
 	    <maven.compiler.source>1.8</maven.compiler.source>
@@ -73,6 +73,7 @@
 	                <descriptorRefs>
 	                    <descriptorRef>jar-with-dependencies</descriptorRef>
 	                </descriptorRefs>
+	                <finalName>umple-orion-server</finalName>
 	                <archive>
 	                    <manifest>
 	                        <mainClass>org.cruise.umple.orion.server.UmpleGenerationServer</mainClass>

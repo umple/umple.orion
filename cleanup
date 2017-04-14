@@ -2,4 +2,4 @@ cd umple-orion-server
 mvn clean
 cd ..
 sudo docker rm my_orion
-sudo docker rmi $(sudo docker images -a | grep umple_orion | awk '{print }')
+sudo docker rmi $(sudo docker images -a | grep 'umple_orion\|\<none\>' | awk '{print $3}')
