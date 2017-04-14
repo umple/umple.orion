@@ -27,6 +27,7 @@ ADD orion.conf /opt/eclipse/orion.conf
 # Copy over umple-orion-server
 RUN mkdir /opt/umple-orion-server
 ADD umple-orion-server/target/umple-orion-server-jar-with-dependencies.jar /opt/umple-orion-server/umple-orion-server.jar
+ADD umple-orion-server/deploy/keystore.jks /opt/umple-orion-server/deploy/keystore.jks
 
 # Expose ports
 EXPOSE 8080 4567
