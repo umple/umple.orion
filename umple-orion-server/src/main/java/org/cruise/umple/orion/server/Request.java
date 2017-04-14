@@ -3,7 +3,11 @@ package org.cruise.umple.orion.server;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
+/* Request understands the requests we recieve
+ * Request parses requests and returns useful information
+ */
 public class Request {
+
 	private static final String REQUEST_FILE_PREFIX = "/file/";
 	private static final String REQUEST_ORIONCONTENT = "-OrionContent";
 	
@@ -11,6 +15,7 @@ public class Request {
 	private String   username; // user making request
 	private String   filename; // file path+name relative to root of user's file-system in Orion server
 	
+	private String orionServerWorkspace; // Absolute path to the root of where the Orion server stores user files (workspace)
 	// Example request:
 	// Java
 	// /file/goon-OrionContent/My%20First%20Car/B!rdW@tch3r-S%3CYM%5E77.ump
@@ -19,7 +24,9 @@ public class Request {
     // Request format is <language>\n<fileInfo>
     // <language> = language 
     // <fileInfo> = /file/<username>-OrionContent/<filename>
-	public Request(String httpPostBody){
+	public Request(String httpPostBody, String orionServerWorkspace){
+		this.orionServerWorkspace = orionServerWorkspace;
+		
     	String[] reqBodyLines = splitAndDecode(httpPostBody);
 		
     	language = reqBodyLines[0];
@@ -27,6 +34,12 @@ public class Request {
     	
     	username = parseUsernameFromFileInfo(fileInfo);
     	filename = parseFilenameFromFileInfo(fileInfo);
+	}
+	
+	// Return absolute path containing user's files in Orion server
+	public String getUserDirectory(){
+		return String.format("%s/%s/%s/", 
+    			orionServerWorkspace, username.substring(0,2), username);
 	}
 	
 	// split request into 2: <language> and <fileInfo>
