@@ -12,11 +12,14 @@ A developemnt enviornemnt for umple.orion is supported on both Windows and Unix.
 
 ## 0.1. Dependencies
  - [Docker](#2-docker-setup)
- - Maven
+ - [Maven](https://maven.apache.org/install.html)
  - [Umple.jar is installed to your local Maven repository](#installing-umple-to-your-local-maven-repository)
 
 ## 0.2. Quick Setup (Linux)
-If all of your dependencies are in place, then to set up and run the Docker image in a container, run `set_up_and_run_docker` from this directory (the directory containing the `Dockerfile`). You can istall the plugin on your Orion client at `https://nwam.github.io/umple.orion/umplePlugin.html`. If you are encountering issues, you can follow the longer setup steps below.
+If all of your dependencies are in place, then to set up and run the Docker image in a container, run `setup`. You can istall the plugin on your Orion client at `https://nwam.github.io/umple.orion/umplePlugin.html`. If you are encountering issues, you can follow the longer setup steps below.
+
+## 0.3 Quick Cleanup
+Run `cleanup`. It might output error messages. That is okay, errors only mean that some workspace elements are already clean.
 
 ## 1. Umple-Orion Server Setup
 ### Installing Umple to your local Maven repository
