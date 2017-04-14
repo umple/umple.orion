@@ -11,23 +11,33 @@ public class Request {
 	private String   username; // user making request
 	private String   filename; // file path+name relative to root of user's file-system in Orion server
 	
+	// Example request:
+	// Java
+	// /file/goon-OrionContent/My%20First%20Car/B!rdW@tch3r-S%3CYM%5E77.ump
+
 	// Parse request to get request contents 
     // Request format is <language>\n<fileInfo>
     // <language> = language 
     // <fileInfo> = /file/<username>-OrionContent/<filename>
 	public Request(String httpPostBody){
-    	String[] reqBodyLines = null;
-		try {
-			reqBodyLines = URLDecoder.decode(httpPostBody, "UTF-8").split("\\r?\\n");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
+    	String[] reqBodyLines = splitAndDecode(httpPostBody);
 		
     	language = reqBodyLines[0];
     	String fileInfo = reqBodyLines[1];
     	
     	username = parseUsernameFromFileInfo(fileInfo);
     	filename = parseFilenameFromFileInfo(fileInfo);
+	}
+	
+	// split request into 2: <language> and <fileInfo>
+	// and URL decode
+	private static String[] splitAndDecode(String request){
+		try {
+			return URLDecoder.decode(request, "UTF-8").split("\\r?\\n");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	// extracts <username> from the string:
