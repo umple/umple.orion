@@ -5,7 +5,7 @@ public class ArgGen {
 	
 	private static final String UMPLE_GENERATE_FLAG = "-g";
 	private static final String UMPLE_PATH_FLAG = "--path";
-	private static final String UMPLE_GENERATED_FOLDER_POSTFIX = "-Gen-Umple";
+	private static final String UMPLE_GENERATED_FOLDER_PREFIX = "src-";
 	
 	public ArgGen(Request r){
 		request = r;
@@ -19,8 +19,7 @@ public class ArgGen {
 		if(!language.equals("")){
 			umpleArgs = new String[]{
 					UMPLE_GENERATE_FLAG, language, 
-					UMPLE_PATH_FLAG, filename.substring(filename.lastIndexOf('/')+1, filename.lastIndexOf('.'))
-							+ "-" + language + UMPLE_GENERATED_FOLDER_POSTFIX,
+					UMPLE_PATH_FLAG, UMPLE_GENERATED_FOLDER_PREFIX + language + '/',
 					filename}; 
 		}else{
 			umpleArgs = new String[]{filename};

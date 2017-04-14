@@ -1,12 +1,10 @@
-package org.cruise.umple.orion.server.test;
+package org.cruise.umple.orion.server;
 
 import static org.junit.Assert.*;
 
-import org.cruise.umple.orion.server.Request;
 import org.junit.Test;
-import org.junit.runners.JUnit4;
 
-public class TestRequest {
+public class RequestTest {
 
 	private static final String ORION_SERVER_WORKSPACE = "/opt/eclipse/workspace/";
 	private static final String REQ_SPECIAL_CHARS = "Java\n/file/goon-OrionContent/My%20First%20Car/B!rdW@tch3r-S%3CYM%5E77.ump";
