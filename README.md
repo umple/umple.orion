@@ -4,6 +4,9 @@ This is a plugin to extend the [Eclipse Orion] IDE to support features that faci
 
 # Development Setup
 
+## 0.0 Windows Development
+A developemnt enviornemnt for umple.orion is supported on both Windows and Unix. If available, we reccomend to use Linux to develop the umple.orion project because of the rigorus extra configuration required to set up and work with a Windows enviornment. Similarly, for anyone deploying this system, it highly recomended to deploy on Linux servers.  
+
 ## 0.1. Dependencies
  - [Docker](#2-docker-setup)
  - Maven
@@ -33,13 +36,15 @@ The umple-orion-server only needs to be built. Docker will handle running the se
 
 **Important:** If you are not using the Quick Setup, remove the version number from the file name, renaming the file to `umple-orion-server-jar-with-dependencies.jar`
 
-**Additional information for Windows**: run `C:\path\to\mvn.cmd clean package` to build the server. For more information about running Maven on Windows, check [Apache's documentation](https://maven.apache.org/guides/getting-started/windows-prerequisites.html). 
+**Windows developers**: run `C:\path\to\mvn.cmd clean package` to build the server. For more information about running Maven on Windows, check [Apache's documentation](https://maven.apache.org/guides/getting-started/windows-prerequisites.html). 
 
-Sometimes Maven acts up with Windows so if you are not developing the umple.orion project, you can download a (possibly outdated) version of the server [here](https://drive.google.com/open?id=0ByO4l0WBF7WAblgwaEhibE1kZ3c) and place it in `umple.orion/umple-orion-server/target/umple-orion-server-jar-with-dependencies.jar`.
+**Non-developers**: You can download a (possibly outdated) version of the server [here](https://drive.google.com/open?id=0ByO4l0WBF7WAblgwaEhibE1kZ3c) and place it in `umple.orion/umple-orion-server/target/umple-orion-server-jar-with-dependencies.jar` instead of building from source. 
 
 ## 2. Docker Setup
 
-**Make sure you have built the Umple-Orion server to `umple-orion-server/target/umple-orion-server-*-jar-with-dependencies.jar` before building the docker image.**
+**Windows developers:** Windows seems to unexpectedly change the line-endings of some files. If you are having issues with running the Docker image, make sure all of your line-endings are **Unix** line-endings as the image is built on Ubuntu. This is especially important for the `run` file.
+
+**Make sure you have built the Umple-Orion server to `umple-orion-server/target/umple-orion-server-jar-with-dependencies.jar` before building the docker image.**
 
 Umple.Orion leverages [Docker] containers to allow developers to quickly setup their local development environment and get the application up and running on their system, regardless of operating system. 
 
@@ -88,6 +93,8 @@ The commands contributed from the Umple plugin can be found under the Tools menu
 Because of security measures (and lack of a CA signed certificate), when testing on localhost, the umple-orion-server gets connections blocked. To fix this, when the umple-orion-server is running, visit `https://localhost:4567/UmpleGenerate` and confirm security exceptions for this address.
 
 Some have reported issues downloading the plugin. It is currently hosted on `nwam`'s GitHub pages, which, for unknown reasons, also get blocked from some browsers. To successfully download the plugin, visit the page and add the security exception to your browser.
+
+**Windows developers:** some Windows builds add additional security over your browser's security (firewalls, etc.). Make sure to disable these features to be able to disable the security settings properly. 
 
 # Managing Docker
 
