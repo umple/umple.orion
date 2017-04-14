@@ -24,9 +24,23 @@ public class TestRequest {
 	}
 	
 	@Test
-	public void testDecoding() {
+	public void testUsernameParse() {
+		Request req = new Request(REQ_SPECIAL_CHARS);
+		assertEquals(req.getUsername(), "goon");
+	}
+	
+	@Test
+	public void testFilenameParse() {
+		Request req = new Request(REQ_MINIMAL);
+		assertEquals(req.getFilename(), "/b/c.ump");
+	}
+	
+	@Test
+	public void testURLDecoding() {
 		Request req = new Request(REQ_SPECIAL_CHARS);
 		assertEquals(req.getFilename(), "/My First Car/B!rdW@tch3r-S<YM^77.ump");
 	}
+	
+	
 
 }
