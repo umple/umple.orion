@@ -7,15 +7,11 @@ public class UmpleGenerationServer {
 	 * ORION_SERVER WORKSPACE to point to eclipse/serverworkspace of the Orion server 
 	 * KEYSTORE_LOCATION to point keystore.jks on your machine
 	 */
-	//public static final String ORION_SERVER_WORKSPACE = "/opt/eclipse/serverworkspace/"; 
-	public static final String ORION_SERVER_WORKSPACE = "/home/nwam/4475/eclipse/serverworkspace/";
-	
-	private static final String UMPLE_GENERATE_FLAG = "-g";
-	private static final String UMPLE_PATH_FLAG = "--path";
-	private static final String UMPLE_GENERATED_FOLDER_POSTFIX = "-Gen-Umple";
+	public static final String ORION_SERVER_WORKSPACE = "/opt/eclipse/serverworkspace/"; 
+	//public static final String ORION_SERVER_WORKSPACE = "/home/nwam/4475/eclipse/serverworkspace/";
 
-    //private static final String KEYSTORE_LOCATION =  "/opt/umple-orion-server/deploy/keystore.jks";
-    private static final String KEYSTORE_LOCATION =  "/home/nwam/4475/umple.orion/umple-orion-server/deploy/keystore.jks";
+    private static final String KEYSTORE_LOCATION =  "/opt/umple-orion-server/deploy/keystore.jks";
+    //private static final String KEYSTORE_LOCATION =  "/home/nwam/4475/umple.orion/umple-orion-server/deploy/keystore.jks";
     private static final String KEYSTORE_PASSWORD = "password";
     
     public static void main(String[] args) {
@@ -61,23 +57,11 @@ public class UmpleGenerationServer {
         	
         	// Parse request for filename and generation language
         	Request request = new Request(req.body(), ORION_SERVER_WORKSPACE);
-        	String language = request.getLanguage();
-        	String filename = request.getAbsoluteFilename();
+        	ArgGen argGen = new ArgGen(request);
         	
-    		String[] umpleArgs;
-    		
-    		if(!language.equals("")){
-    			umpleArgs = new String[]{
-    					UMPLE_GENERATE_FLAG, language, 
-    					UMPLE_PATH_FLAG, filename.substring(filename.lastIndexOf('/')+1, filename.lastIndexOf('.'))
-    							+ "-" + language + UMPLE_GENERATED_FOLDER_POSTFIX,
-    					filename}; 
-    		}else{
-    			umpleArgs = new String[]{filename};
-    		}
-    		
+
     		// Execute Umple generation
-    		cruise.umple.UmpleConsoleMain.main(umpleArgs);
+    		cruise.umple.UmpleConsoleMain.main(argGen.generateUmpleArgs());
         	
         	
         	return "";

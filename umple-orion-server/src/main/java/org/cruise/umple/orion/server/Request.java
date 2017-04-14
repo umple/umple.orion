@@ -3,8 +3,10 @@ package org.cruise.umple.orion.server;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
-/* Request understands the requests we recieve
- * Request parses requests and returns useful information
+/* Request understands the requests we receive
+ * Request parses requests and gives us
+ * 	language and
+ *  absolute path to requested file (in Orion server)
  */
 public class Request {
 
@@ -33,8 +35,7 @@ public class Request {
     	username = parseUsernameFromFileInfo(fileInfo);
     	filename = parseFilenameFromFileInfo(fileInfo);
 	}
-	
-	
+		
 	// Return absolute path of requested file
 	public String getAbsoluteFilename(){
 		return String.format("%s%s%s", 
@@ -73,7 +74,6 @@ public class Request {
 	private static String parseFilenameFromFileInfo(String fileInfo){
 		return fileInfo.substring(fileInfo.indexOf('/', REQUEST_FILE_PREFIX.length()));
 	}
-	
 	
 	
 	public String getLanguage(){
