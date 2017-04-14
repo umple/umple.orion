@@ -4,8 +4,11 @@ import java.net.URLDecoder;
 
 public class UmpleGenerationServer {
 	
-	//TODO: set server path to server location
-	private static final String ORION_SERVER_WORKSPACE = "/opt/eclipse/serverworkspace/"; // "/home/nwam/4475/eclipse/serverworkspace/"; //
+	/* If you are not developing/testing on the Docker image, you must change
+	 * ORION_SERVER WORKSPACE to point to eclipse/serverworkspace of the Orion server 
+	 * KEYSTORE_LOCATION to point keystore.jks on your machine
+	 */
+	private static final String ORION_SERVER_WORKSPACE = "/opt/eclipse/serverworkspace/"; // // "/home/nwam/4475/eclipse/serverworkspace/";
 	private static final String ORION_USER_CONTENT_DIRECTORY = "OrionContent/";
 	
 	private static final String REQUEST_FILE_PREFIX = "/file/";
@@ -15,7 +18,7 @@ public class UmpleGenerationServer {
 	private static final String UMPLE_PATH_FLAG = "--path";
 	private static final String UMPLE_GENERATED_FOLDER_POSTFIX = "-Gen-Umple";
 
-    private static final String KEYSTORE_LOCATION = "/opt/umple-orion-server/deploy/keystore.jks"; // on the docker image
+    private static final String KEYSTORE_LOCATION =  "/opt/umple-orion-server/deploy/keystore.jks";// on the docker image "/home/nwam/4475/umple.orion/umple-orion-server/deploy/keystore.jks";
     private static final String KEYSTORE_PASSWORD = "password";
 	
     public static void main(String[] args) {
@@ -50,13 +53,13 @@ public class UmpleGenerationServer {
     	
     	/* get has no functionality, just here for testing purposes */
         get("/UmpleGenerate", (req, res) -> {
-        	System.out.println("[Received GET request]");
+        	System.out.println("[umple-orion-server] Received GET request");
         	return "";
         });
         
         /* generate code on the Orion server */
         post("/UmpleGenerate", (req, res) -> {
-        	System.out.println("[Received request]:\n" + req.body() + '\n' );
+        	System.out.println("Received POST request:\n" + req.body() + '\n' );
         	res.body("Info processed"); 
         	
         	// Parse request for username, filename, and generation language

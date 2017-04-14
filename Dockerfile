@@ -3,6 +3,7 @@
 
 FROM ubuntu:16.04
 MAINTAINER Edmund Luong <edmundvmluong@gmail.com>
+MAINTAINER Noah Murad <noahmurad@hotmail.com>
 
 # Install Java 8.
 RUN apt-get update && \
@@ -25,7 +26,8 @@ RUN curl -o /tmp/orion.zip http://mirror.csclub.uwaterloo.ca/eclipse/orion/drops
 ADD orion.conf /opt/eclipse/orion.conf
 
 # Copy over umple-orion-server
-RUN mkdir /opt/umple-orion-server
+RUN mkdir /opt/umple-orion-server && \
+    mkdir /opt/umple-orion-server/deploy
 ADD umple-orion-server/target/umple-orion-server-jar-with-dependencies.jar /opt/umple-orion-server/umple-orion-server.jar
 ADD umple-orion-server/deploy/keystore.jks /opt/umple-orion-server/deploy/keystore.jks
 
