@@ -5,7 +5,7 @@ This is a plugin to extend the [Eclipse Orion] IDE to support features that faci
 # Development Setup
 
 ## 0.0 Windows Development
-A developemnt enviornemnt for umple.orion is supported on both Windows and Unix. If available, it we reccomend to use Linux to develop the umple.orion project because of the rigorus extra configuration required to set up and work with a Windows enviornment. Similarly, for anyone deploying this system, it highly recomended to deploy on Linux servers.  
+A developemnt enviornemnt for umple.orion is supported on both Windows and Unix. If available, we reccomend to use Linux to develop the umple.orion project because of the rigorus extra configuration required to set up and work with a Windows enviornment. Similarly, for anyone deploying this system, it highly recomended to deploy on Linux servers.  
 
 ## 0.1. Dependencies
  - [Docker](#2-docker-setup)
