@@ -36,6 +36,13 @@
 		<artifactId>umple</artifactId>
 		<version>1.25.0-963d2bd</version>
     </dependency>
+    
+    <dependency>
+	  <groupId>junit</groupId>
+	  <artifactId>junit</artifactId>
+	  <version>4.11</version>
+	  <scope>test</scope>
+	</dependency>
 
   </dependencies>
 

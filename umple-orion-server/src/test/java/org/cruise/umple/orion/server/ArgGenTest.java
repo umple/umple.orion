@@ -11,7 +11,6 @@ public class ArgGenTest {
 	private static final String REQ_MINIMAL = "\n/file/aaa-OrionContent/b/c.ump"; // username must have 3 characters
 	private static final String REQ = "Php\n/file/nwam-OrionContent/road/to/dar/el/salaam.ump"; 
 	
-	
 	@Test
 	public void testArgGen() {
 		Request req = new Request(REQ, ORION_SERVER_WORKSPACE);
