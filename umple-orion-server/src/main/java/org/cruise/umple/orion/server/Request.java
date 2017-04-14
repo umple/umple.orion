@@ -10,16 +10,13 @@ public class Request {
 
 	private static final String REQUEST_FILE_PREFIX = "/file/";
 	private static final String REQUEST_ORIONCONTENT = "-OrionContent";
-	private static final String ORION_USER_CONTENT_DIRECTORY = "OrionContent/";
+	private static final String ORION_USER_CONTENT_DIRECTORY = "OrionContent";
 	
 	private String   language; // language to generate
 	private String   username; // user making request
 	private String   filename; // file path+name relative to root of user's file-system in Orion server
 	
 	private String orionServerWorkspace; // Absolute path to the root of where the Orion server stores user files (workspace)
-	// Example request:
-	// Java
-	// /file/goon-OrionContent/My%20First%20Car/B!rdW@tch3r-S%3CYM%5E77.ump
 
 	// Parse request to get request contents 
     // Request format is <language>\n<fileInfo>
@@ -40,7 +37,7 @@ public class Request {
 	
 	// Return absolute path of requested file
 	public String getAbsoluteFilename(){
-		return String.format("%s/%s/%s", 
+		return String.format("%s%s%s", 
 				getUserDirectory(), ORION_USER_CONTENT_DIRECTORY, filename);
 	}
 	
