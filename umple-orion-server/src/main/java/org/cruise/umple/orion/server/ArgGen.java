@@ -28,5 +28,13 @@ public class ArgGen {
 		
 		return umpleArgs;
 	}
+	
+	public String toString(){
+		String s = "";
+		for (String arg : generateUmpleArgs()){
+			s += arg + " ";
+		}
+		return s.substring(0, s.length()-1);
+	}
 
 }

@@ -31,7 +31,7 @@ public class TestRequest {
 	}
 	
 	@Test
-	public void testURLDecoding() {
+	public void testFilenameParseSpecialCharacters() {
 		Request req = new Request(REQ_SPECIAL_CHARS, ORION_SERVER_WORKSPACE);
 		assertEquals(req.getAbsoluteFilename(), ORION_SERVER_WORKSPACE + "/go/goon/OrionContent/My First Car/B!rdW@tch3r-S<YM^77.ump");
 	}	
