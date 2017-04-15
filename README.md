@@ -1,6 +1,20 @@
 # Umple.Orion
+This is a plugin to extend the [Eclipse Orion](https://wiki.eclipse.org/Orion) IDE to support features that facilitate cloud-based development of [Umple](http://cruise.eecs.uottawa.ca/umple/GettingStarted.html) software. The main feature of this plugin gives Orion users the ability to generate code from Umple code.
 
-This is a plugin to extend the [Eclipse Orion] IDE to support features that facilitate cloud-based development of [Umple] software. The main feature gives Orion users the ability to generate code from Umple code.
+# Contents
+ - [Features](#features)
+ - [Architecture](#architecture)
+ - [Development Setup](#development-setup)
+
+# Features
+## Code Generation
+As it is the core feature of Umple, code generation is also the core feature of the plugin. In Orion, after installing the Umple plugin, you can find all of the code generation features in the `Tools` menu while editing a `.ump` file. These options are hidden otherwise because they are of no use to other filetypes. 
+
+## Syntax Hilighting
+When editing an Umple file (`.ump`) in Orion, keywords will be highlighted according to [Umple's grammar](http://cruise.eecs.uottawa.ca/umple/UmpleGrammar.html).
+
+## Umple Icons
+Users can more easily locate and distinguish Umple files because they have their own custom icons.
 
 # Architecture
 
@@ -89,7 +103,7 @@ Visit `http://localhost:8080` in your web browser and you should be able to see 
 ### Installation
 You need to install the Umple plugin to your Orion client to access the umple-orion server. In your Orion client, navigate to the plugins tab in settings. You can istall the plugin on your Orion client through `https://nwam.github.io/umple.orion/umplePlugin.html`. 
 
-The commands contributed from the Umple plugin can be found under the Tools menu while editing a file with the extention `.ump`. For more information about installing Orion plugins, visit [Orion's documentation](https://wiki.eclipse.org/Orion/How_Tos/Installing_A_Plugin).
+The commands contributed from the Umple plugin can be found under the `Tools` menu while editing a file with the extention `.ump`. For more information about installing Orion plugins, visit [Orion's documentation](https://wiki.eclipse.org/Orion/How_Tos/Installing_A_Plugin).
 
 ### Troubleshooting Connection Security Issues
 Because of security measures (and lack of a CA signed certificate), when testing on localhost, the umple-orion-server gets connections blocked. To fix this, when the umple-orion-server is running, visit `https://localhost:4567/UmpleGenerate` and confirm security exceptions for this address.
