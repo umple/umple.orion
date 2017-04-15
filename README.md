@@ -5,7 +5,6 @@ This is a plugin to extend the [Eclipse Orion](https://wiki.eclipse.org/Orion) I
  - [Features](#features)
  - [Architecture](#architecture)
  - [Development Setup](#development-setup)
- - [Managing Docker](#managing-docker)
  - [Resources](#resources)
 
 # Features
@@ -19,9 +18,33 @@ When editing an Umple file (`.ump`) in Orion, keywords will be highlighted accor
 Users can more easily locate and distinguish Umple files because they have their own custom icons.
 
 # Architecture
+The following is a simplified architecture of the [code generation](#code-generation):
 
+![Umple-Orion-Architecture](https://nwam.github.io/umple.orion/Umple-Orion-Architecture.png)
+
+#### Components
+ - **Umple Server**: Machine containing the Orion Server and umple-orion-server.
+ - **Orion Client**: The Orion client, as accessed via browser by an Orion user. ([example](http://orionhub.org/))
+ - **Orion Server**: The server side of Orion. Source available [here](http://download.eclipse.org/orion/).
+ - **user files**: The files of the user who is logged into the Orion Client. Orion's architecture stores user files in the Orion Server. Each user has their own directory with their projects' files.
+ - **umple-orion-plugin** and **umple-orion-server**: Main components which make up this project.
+
+A more detailed description of Orion's architecture (on it's own) can be found [here](https://wiki.eclipse.org/Orion/Documentation/Developer_Guide/Architecture)
+
+#### Actions
+ - **Request**: A Request is initiated by the user through the Orion Client's UI when a user clicks on an Umple command in the Tools menu. A Request contains the username of the requestee, the requested file for Umple generation, and the language requested for generation. 
+ - **Execute Umple.jar**: This action is initiated by a successful Request to the umple-orion-server. The umple-orion-server executes Umple's generation features in the requested language, on the requested file. This is facilitated by the fact that the umple-orion-server and the Orion Server are on the same machine (Umple Server).
 
 # Development Setup
+
+ - [0.0. Windows Development](#00-windows-development)
+ - [0.1. Dependencies](#01-dependencies)
+ - [0.2. Quick Setup](#02-quick-setup-linux)
+ - [0.3. Quick Cleanup](#03-quick-cleanup)
+ - [1. umple-orion-server Setup](#1-umple-orion-server-setup)
+ - [2. Docker Setup](#2-docker-setup)
+ - [3. umple-orion-plugin Setup](#3-umple-orion-plugin-setup)
+ - [4. Managing Docker](#4-managing-docker)
 
 ## 0.0 Windows Development
 A developemnt enviornemnt for umple.orion is supported on both Windows and Unix. If available, we reccomend to use Linux to develop the umple.orion project because of the rigorus extra configuration required to set up and work with a Windows enviornment. Similarly, for anyone deploying this system, it highly recomended to deploy on Linux servers.  
@@ -35,9 +58,9 @@ A developemnt enviornemnt for umple.orion is supported on both Windows and Unix.
 If all of your dependencies are in place, then to set up and run the Docker image in a container, run `setup`. You can istall the plugin on your Orion client at `https://nwam.github.io/umple.orion/umplePlugin.html`. If you are encountering issues, you can follow the longer setup steps below.
 
 ## 0.3 Quick Cleanup
-Run `cleanup` to completely clean up your enviornment.`cleanup` will delete your docker image, so elements of the image, such as ubuntu, will have to reintall. `cleanup` is best used to test if the system builds from scratch. For a faster build, see [managing docker](#managing-docker). `cleanup` might output error messages. That is okay since errors only mean that some workspace elements are already clean. 
+Run `cleanup` to completely clean up your enviornment.`cleanup` will delete your docker image, so elements of the image, such as ubuntu, will have to reintall. `cleanup` is best used to test if the system builds from scratch. For a faster workflow, see [managing docker](#4-managing-docker). `cleanup` might output error messages. That is okay since errors only mean that some workspace elements are already clean. 
 
-## 1. Umple-Orion Server Setup
+## 1. umple-orion-server Setup
 ### Installing Umple to your local Maven repository
 Umple does not exist in Apache's central repositories, so we have to add it to our own local repository to use it in our server. To do so, run: 
 
@@ -100,7 +123,7 @@ osgi>
 
 Visit `http://localhost:8080` in your web browser and you should be able to see the Eclipse Orion up and running on your system! Sometimes, upon first visiting `http://localhost:8080` you will encounter a HTTP server error 500. Refresh to fix this.
 
-## 3. Umple Plugin
+## 3. umple-orion-plugin Setup
 
 ### Installation
 You need to install the Umple plugin to your Orion client to access the umple-orion server. In your Orion client, navigate to the plugins tab in settings. You can istall the plugin on your Orion client through `https://nwam.github.io/umple.orion/umplePlugin.html`. 
@@ -110,9 +133,9 @@ The commands contributed from the Umple plugin can be found under the `Tools` me
 ### Troubleshooting Connection Security Issues
 Because of security measures (and lack of a CA signed certificate), when testing on localhost, the umple-orion-server gets connections blocked. To fix this, when the umple-orion-server is running, visit `https://localhost:4567/UmpleGenerate` and confirm security exceptions for this address.
 
-Some have reported issues downloading the plugin. It is currently hosted on `nwam`'s GitHub pages, which, for unknown reasons, also get blocked from some browsers. To successfully download the plugin, visit the page and add the security exception to your browser.
+Some have reported issues downloading the plugin. It is currently hosted on nwam's GitHub pages, which, for unknown reasons, gets blocked in some browsers (on Windows). If you encounter issues downloading the plugin, visit the [plugin page](ttps://nwam.github.io/umple.orion/umplePlugin.html) and add the security exception to your browser.
 
-# Managing Docker
+## 4. Managing Docker
 
 To kill a running Docker container instance, execute the following command in a terminal:
 
@@ -129,6 +152,16 @@ docker restart <container-name>
 ```
 
 Continuing our example, we would execute `docker restart my_orion` to bring our Eclipse Orion Docker instance back up again. Please refer to the Docker Cheatsheet in the Resources section for more Docker commands.
+
+Sometimes, when debugging, it is useful to explore the contents of the docker container. To do so execute
+
+```
+docker exec -i -t <container-name> bash
+```
+
+With our example, we would execute `docker exec -i -t my_orion bash` which would let us explore the contents of the container with bash.
+
+For more information about managing docker, check out the [docker cheatsheet](https://github.com/wsargent/docker-cheat-sheet).
 
 
 # Resources
