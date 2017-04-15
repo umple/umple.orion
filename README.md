@@ -1,10 +1,12 @@
 # Umple.Orion
-This is a plugin to extend the [Eclipse Orion](https://wiki.eclipse.org/Orion) IDE to support features that facilitate cloud-based development of [Umple](http://cruise.eecs.uottawa.ca/umple/GettingStarted.html) software. The main feature of this plugin gives Orion users the ability to generate code from Umple code.
+This is a plugin to extend the [Eclipse Orion](https://wiki.eclipse.org/Orion) IDE to support features that facilitate cloud-based development of [Umple](http://cruise.eecs.uottawa.ca/umple/) software. The main feature of this plugin gives Orion users the ability to generate code from Umple code.
 
 # Contents
  - [Features](#features)
  - [Architecture](#architecture)
  - [Development Setup](#development-setup)
+ - [Managing Docker](#managing-docker)
+ - [Resources](#resources)
 
 # Features
 ## Code Generation
@@ -130,10 +132,9 @@ Continuing our example, we would execute `docker restart my_orion` to bring our 
 
 
 # Resources
-- [Eclipse Orion Wiki](https://wiki.eclipse.org/Orion)
-- [Docker Cheatsheet](https://github.com/wsargent/docker-cheat-sheet)
-
-[Eclipse Orion]: http://orionhub.org
-[Umple]: http://umple.org
-[Docker]: http://docker.com
-[Docker Toolbox]: https://www.docker.com/products/docker-toolbox
+- [Eclipse Orion Wiki](https://wiki.eclipse.org/Orion): Your main resrouce on all things Orion. A great place to start your research.
+  - [Orion Developer Guide](https://wiki.eclipse.org/Orion/Documentation/Developer_Guide): The developer's best friend to learn about Orion and Orion plugins.
+  - [Orion Forums](https://www.eclipse.org/forums/index.php/f/227/): Attempt to reach out for help on these forums or read pervious discussions. Thew board is pretty unresponsive so be patient or find information elsewhere.
+  - Orion IRC Channel: `#eclipse-orion` on the Freenode network. Also very unresponsive. Be patient, and wait around for a response (don't sign out!). IRC tip for beginners: don't ask to ask, just ask your question and wait (for long).
+- [Orion Hub](http://orionhub.org): A sample Orion that is set up for public use. 
+- [Umple](http://umple.org): More information about Umple.
