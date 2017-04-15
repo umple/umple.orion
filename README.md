@@ -19,7 +19,7 @@ A developemnt enviornemnt for umple.orion is supported on both Windows and Unix.
 If all of your dependencies are in place, then to set up and run the Docker image in a container, run `setup`. You can istall the plugin on your Orion client at `https://nwam.github.io/umple.orion/umplePlugin.html`. If you are encountering issues, you can follow the longer setup steps below.
 
 ## 0.3 Quick Cleanup
-Run `cleanup`. It might output error messages. That is okay, errors only mean that some workspace elements are already clean.
+Run `cleanup` to completely clean up your enviornment.`cleanup` will delete your docker image, so elements of the image, such as ubuntu, will have to reintall. `cleanup` is best used to test if the system builds from scratch. For a faster build, see [managing docker](#managing-docker). `cleanup` might output error messages. That is okay since errors only mean that some workspace elements are already clean. 
 
 ## 1. Umple-Orion Server Setup
 ### Installing Umple to your local Maven repository
