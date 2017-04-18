@@ -38,9 +38,10 @@ function umpleGenerate(language) {
 provider.registerService("orion.edit.command", 
     umpleGenerate(""),
     { 
-      name: "Umple Generate",
+      name: "[Umple] Generate",
       tooltip: "Generate code from your Textual Umple Model",
       img: pwd + "umple.ico",
+      key : ["u", true],
       contentType: ["text/umple"]
     }
 );
@@ -49,7 +50,7 @@ provider.registerService("orion.edit.command",
 provider.registerService("orion.edit.command", 
     umpleGenerate("Java"),
     { 
-      name: "Generate Java",
+      name: "[Umple/Code] Java",
       tooltip: "Generate Java code from your Textual Umple Model",
       img: pwd + "umple.ico",
       contentType: ["text/umple"]
@@ -60,7 +61,7 @@ provider.registerService("orion.edit.command",
 provider.registerService("orion.edit.command", 
     umpleGenerate("Php"),
     { 
-      name: "Generate PHP",
+      name: "[Umple/Code] PHP",
       tooltip: "Generate PHP code from your Textual Umple Model",
       img: pwd + "umple.ico",
       contentType: ["text/umple"]
@@ -71,7 +72,7 @@ provider.registerService("orion.edit.command",
 provider.registerService("orion.edit.command", 
     umpleGenerate("RTCpp"),
     { 
-      name: "Generate RTC++",
+      name: "[Umple/Code] RTC++",
       tooltip: "Generate RTC++ code from your Textual Umple Model",
       img: pwd + "umple.ico",
       contentType: ["text/umple"]
@@ -82,13 +83,112 @@ provider.registerService("orion.edit.command",
 provider.registerService("orion.edit.command", 
     umpleGenerate("Ruby"),
     { 
-      name: "Generate Ruby",
+      name: "[Umple/Code] Ruby",
       tooltip: "Generate Ruby code from your Textual Umple Model",
       img: pwd + "umple.ico",
       contentType: ["text/umple"]
     }
 );
 
+provider.registerService("orion.edit.command", 
+    umpleGenerate("GvClassDiagram"),
+    { 
+      name: "[Umple/Diagram] Class Diagram",
+      tooltip: "Generate a class diagram from your Textual Umple Model",
+      img: pwd + "umple.ico",
+      contentType: ["text/umple"]
+    }
+);
+
+provider.registerService("orion.edit.command", 
+    umpleGenerate("GvStateDiagram"),
+    { 
+      name: "[Umple/Diagram] State Machine Diagram",
+      tooltip: "Generate a state machine diagram from your Textual Umple Model",
+      img: pwd + "umple.ico",
+      contentType: ["text/umple"]
+    }
+);
+
+provider.registerService("orion.edit.command", 
+    umpleGenerate("GvClassTraitDiagram"),
+    { 
+      name: "[Umple/Diagram] Class-Trait Diagram",
+      tooltip: "Generate a class-trait diagram from your Textual Umple Model",
+      img: pwd + "umple.ico",
+      contentType: ["text/umple"]
+    }
+);
+
+provider.registerService("orion.edit.command", 
+    umpleGenerate("GvEntityRelationshipDiagram"),
+    { 
+      name: "[Umple/Diagram] Entity Relationship Diagram",
+      tooltip: "Generate a entity relationship diagram from your Textual Umple Model",
+      img: pwd + "umple.ico",
+      contentType: ["text/umple"]
+    }
+);
+
+provider.registerService("orion.edit.command", 
+    umpleGenerate("Alloy"),
+    { 
+      name: "[Umple/Representation] Alloy",
+      tooltip: "Generate an Alloy representation of your Textual Umple Model",
+      img: pwd + "umple.ico",
+      contentType: ["text/umple"]
+    }
+);
+
+provider.registerService("orion.edit.command", 
+    umpleGenerate("NuSMV"),
+    { 
+      name: "[Umple/Representation] NuSMV",
+      tooltip: "Generate a NuSMV representation of your Textual Umple Model",
+      img: pwd + "umple.ico",
+      contentType: ["text/umple"]
+    }
+);
+
+provider.registerService("orion.edit.command", 
+    umpleGenerate("Sql"),
+    { 
+      name: "[Umple/Other] SQL",
+      tooltip: "Generate SQL from your Textual Umple Model",
+      img: pwd + "umple.ico",
+      contentType: ["text/umple"]
+    }
+);
+
+provider.registerService("orion.edit.command", 
+    umpleGenerate("Umple"),
+    { 
+      name: "[Umple/Other] Umple Internal Representation",
+      tooltip: "Generate Umple's internal representation of your Textual Umple Model",
+      img: pwd + "umple.ico",
+      contentType: ["text/umple"]
+    }
+);
+
+provider.registerService("orion.edit.command", 
+    umpleGenerate("USE"),
+    { 
+      name: "[Umple/Other] USE",
+      tooltip: "Generate USE from your Textual Umple Model",
+      img: pwd + "umple.ico",
+      contentType: ["text/umple"]
+    }
+);
+
+provider.registerService("orion.edit.command", 
+    umpleGenerate("SimpleMetrics"),
+    { 
+      name: "[Umple/Other] Simple Metrics",
+      tooltip: "Generate Simple Metrics from your Textual Umple Model",
+      img: pwd + "umple.ico",
+      contentType: ["text/umple"]
+    }
+);
 //================================
 // Content Type Services
 //================================
