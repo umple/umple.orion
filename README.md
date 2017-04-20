@@ -39,8 +39,8 @@ A more detailed description of Orion's architecture (on it's own) can be found [
 
  - [0.0. Windows Development](#00-windows-development)
  - [0.1. Dependencies](#01-dependencies)
- - [0.2. Quick Setup](#02-quick-setup-linux)
- - [0.3. Quick Cleanup](#03-quick-cleanup)
+ - [0.2 Quick Setup](#021-quick-setup)
+ - [0.3. Quick Cleanup (Unix)](#03-quick-cleanup-unix)
  - [1. umple-orion-server Setup](#1-umple-orion-server-setup)
  - [2. Docker Setup](#2-docker-setup)
  - [3. umple-orion-plugin Setup](#3-umple-orion-plugin-setup)
@@ -54,10 +54,25 @@ A developemnt enviornemnt for umple.orion is supported on both Windows and Unix.
  - [Maven](https://maven.apache.org/install.html)
  - [Umple.jar is installed to your local Maven repository](#installing-umple-to-your-local-maven-repository)
 
-## 0.2. Quick Setup (Linux)
-If all of your dependencies are in place, then to set up and run the Docker image in a container, run `setup`. You can istall the plugin on your Orion client at `https://nwam.github.io/umple.orion/umplePlugin.html`. If you are encountering issues, you can follow the longer setup steps below.
+## 0.2 Quick Setup
+####Unix
+If all of your dependencies are in place, then to set up and run the Docker image in a container, run 
 
-## 0.3 Quick Cleanup
+```
+setup
+````
+
+You can istall the plugin on your Orion client at `https://nwam.github.io/umple.orion/umplePlugin.html`.
+
+####Windows
+If all of your dependencies are in place and your maven path is part of your PATH variable, while docker is running, run `setup.bat`. This will set up and run the Docker image in a container.
+
+**Importatnt:** If you are encountering an error running the Docker image, replace the line-endings in the file `run` with Unix line-endings. For unknown reasons, the line-endings in this file get converted to Windows line endings, **even if you never opened the file**.
+
+##Both 
+See [managing docker](#4-managing-docker) to work with the docker image once it is setup and running. If you are encountering issues, you can follow the longer setup steps below.
+
+## 0.3 Quick Cleanup (Unix)
 Run `cleanup` to completely clean up your enviornment.`cleanup` will delete your docker image, so elements of the image, such as ubuntu, will have to reintall. `cleanup` is best used to test if the system builds from scratch. For a faster workflow, see [managing docker](#4-managing-docker). `cleanup` might output error messages. That is okay since errors only mean that some workspace elements are already clean. 
 
 ## 1. umple-orion-server Setup
