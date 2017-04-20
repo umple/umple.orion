@@ -39,8 +39,8 @@ A more detailed description of Orion's architecture (on it's own) can be found [
 
  - [0.0. Windows Development](#00-windows-development)
  - [0.1. Dependencies](#01-dependencies)
- - [0.2. Quick Setup](#02-quick-setup-linux)
- - [0.3. Quick Cleanup](#03-quick-cleanup)
+ - [0.2 Quick Setup](#021-quick-setup)
+ - [0.3. Quick Cleanup (Unix)](#03-quick-cleanup-unix)
  - [1. umple-orion-server Setup](#1-umple-orion-server-setup)
  - [2. Docker Setup](#2-docker-setup)
  - [3. umple-orion-plugin Setup](#3-umple-orion-plugin-setup)
@@ -54,10 +54,22 @@ A developemnt enviornemnt for umple.orion is supported on both Windows and Unix.
  - [Maven](https://maven.apache.org/install.html)
  - [Umple.jar is installed to your local Maven repository](#installing-umple-to-your-local-maven-repository)
 
-## 0.2. Quick Setup (Linux)
-If all of your dependencies are in place, then to set up and run the Docker image in a container, run `setup`. You can istall the plugin on your Orion client at `https://nwam.github.io/umple.orion/umplePlugin.html`. If you are encountering issues, you can follow the longer setup steps below.
+## 0.2 Quick Setup
+#### Unix
+If all of your dependencies are in place, then to set up and run the Docker image in a container, run 
+```
+setup
+```
 
-## 0.3 Quick Cleanup
+#### Windows
+If all of your dependencies are in place and your maven path is part of your PATH variable, while docker is running, run `setup.bat`. This will set up and run the Docker image in a container.
+
+**Importatnt:** If you are encountering an error running the Docker image, replace the line-endings in the file `run` with Unix line-endings. For unknown reasons, the line-endings in this file get converted to Windows line endings, **even if you never opened the file**.
+
+#### Both 
+You must install the plugin on your Orion client at `https://nwam.github.io/umple.orion/umplePlugin.html` to use the features. See [managing docker](#4-managing-docker) to work with the docker image once it is setup and running. If you are encountering issues, you can follow the longer setup steps below.
+
+## 0.3 Quick Cleanup (Unix)
 Run `cleanup` to completely clean up your enviornment.`cleanup` will delete your docker image, so elements of the image, such as ubuntu, will have to reintall. `cleanup` is best used to test if the system builds from scratch. For a faster workflow, see [managing docker](#4-managing-docker). `cleanup` might output error messages. That is okay since errors only mean that some workspace elements are already clean. 
 
 ## 1. umple-orion-server Setup
@@ -77,17 +89,21 @@ Be sure to replace `/path/to/umple-1.25.0-963d2bd.jar` with the actual path to y
 For more information on installing 3rd party jars to your local repository, see [Apache's documentation](https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html).
 
 ### Building umple-orion-server
-The umple-orion-server only needs to be built. Docker will handle running the server. To build the server, `cd` to `umple-orion-server` and run `mvn package`. The server will be packaged to `target/umple-orion-server-jar-with-dependencies.jar`
+The umple-orion-server only needs to be built. Docker will handle running the server. To build the server, from `umple-orion-server/` run 
+```
+mvn package
+``` 
+The server will be packaged to `umple-orion-server/target/umple-orion-server-jar-with-dependencies.jar`
 
-**Windows developers**: run `C:\path\to\mvn.cmd clean package` to build the server. For more information about running Maven on Windows, check [Apache's documentation](https://maven.apache.org/guides/getting-started/windows-prerequisites.html). 
+**Windows developers**: Run `C:\path\to\mvn.cmd package` to build the server. For more information about running Maven on Windows, check [Apache's documentation](https://maven.apache.org/guides/getting-started/windows-prerequisites.html). 
 
 **Non-developers**: You can download a (possibly outdated) version of the server [here](https://drive.google.com/open?id=0ByO4l0WBF7WAblgwaEhibE1kZ3c) and place it in `umple.orion/umple-orion-server/target/umple-orion-server-jar-with-dependencies.jar` instead of building from source. 
 
 ## 2. Docker Setup
 
-**Windows developers:** Windows seems to unexpectedly change the line-endings of some files. If you are having issues with running the Docker image, make sure all of your line-endings are **Unix** line-endings as the image is built on Ubuntu. This is especially important for the `run` file.
+**Windows developers:** Windows seems to unexpectedly change the line-endings of some files **even if you have never opened these files**. If you are having issues running the Docker image, make sure your line-endings in `run` are **Unix** line-endings as the image is built on Ubuntu. 
 
-Umple.Orion leverages [Docker] containers to allow developers to quickly setup their local development environment and get the application up and running on their system, regardless of operating system. 
+Umple.Orion leverages [Docker](https://www.docker.com/) containers to allow developers to quickly setup their local development environment and get the application up and running on their system, regardless of operating system. 
 
 To install Docker, please visit the following links below to download the appropriate installer and installation instructions. Please read the installation instructions carefully, as certain systems may not meet the requirements for a native Docker installation, and must use [Docker Toolbox] instead. 
 
